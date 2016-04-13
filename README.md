@@ -86,10 +86,8 @@ Automatic installation of a sane vim setup with various plugins
 	- Leader !
 - Toggle Line Wrapping
 	- Leader lw
-
 - Allow easy pane switching with ctrl direction
-- Ctrl-hjkl
-
+	- Ctrl-hjkl
 - Quick pane resizing
 	- Leader z
 	- Leader x
