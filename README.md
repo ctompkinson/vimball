@@ -29,63 +29,63 @@ Automatic installation of a sane vim setup with various plugins
 * [Wombat](https://github.com/vim-scripts/Wombat.git)
 	- Uses modified scheme for vimdiff
 
-## Bindings
+#  # Bindings
 * Enable list mode
-- <Leader>L
+- Leader L
 * Run indent on buffer
-- <Leader>i
+- Leader i
 * Toggle Gundo
-- <Leader>u
+- Leader u
 * Toggle Git Blame
-- <Leader>b
+- Leader b
 * Toggle paste mode
-- <Leader>p
+- Leader p
 * Re-source vim profile
-- <Leader>r
+- Leader r
 * Toggle line numbers
-- <Leader>N
+- Leader N
 * Toggle NERDTree file browser
-- <Leader>nt
+- Leader nt
 * New Tab
-- <Leader>tn
+- Leader tn
 * New veritcal split pane with empty buffer
-- <Leader>v
+- Leader v
 * New horizontal split pane with empty buffer
-- <Leader>V
+- Leader V
 * Quit
-- <Leader>q
+- Leader q
 * Force quit
-- <Leader>Q
+- Leader Q
 * Write
-- <Leader>w
+- Leader w
 * Force write
-- <Leader>W
+- Leader W
 * Replace tabs with four spaces
-- <Leader>ct
+- Leader ct
 * Toggle tag list
-- <Leader>tl
+- Leader tl
 * Run yaml-lint on buffer
-- <Leader>yl
+- Leader yl
 * Open file fuzzy matcher
-- <Leader>f
+- Leader f
 * Start force edit command
-- <Leader>e
+- Leader e
 * Toggle Cursor line
-- <Leader>ch
+- Leader ch
 * Create commented title
-- <Leader>tt
+- Leader tt
 * Create bold commented title
-- <Leader>tb
+- Leader tb
 * Create underline
-- <Leader>tu
+- Leader tu
 * Insert Snippets
-- <Leader>ss
+- Leader ss
 * Open todo file
-- <Leader>to
+- Leader to
 * Run shell and output in new pane
-- <Leader>!
+- Leader !
 * Toggle Line Wrapping
-- <Leader>lw
+- Leader lw
 
 * Allow easy pane switching with ctrl direction
 - <C-h> <C-w>h
@@ -94,7 +94,7 @@ Automatic installation of a sane vim setup with various plugins
 - <C-l> <C-w>l
 
 * Quick pane resizing
-- <Leader>z
-- <Leader>x
-- <Leader>Z
-- <Leader>X
+- Leader z
+- Leader x
+- Leader Z
+- Leader X
