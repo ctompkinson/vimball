@@ -1,0 +1,63 @@
+[submodule "dotvim/bundle/bufexplorer"]
+	path = dotvim/bundle/bufexplorer
+	url = https://github.com/jlanzarotta/bufexplorer.git
+[submodule "dotvim/bundle/ctrlp.vim"]
+	path = dotvim/bundle/ctrlp.vim
+	url = https://github.com/kien/ctrlp.vim
+[submodule "dotvim/bundle/Dockerfile.vim"]
+	path = dotvim/bundle/Dockerfile.vim
+	url = https://github.com/ekalinin/Dockerfile.vim.git
+[submodule "dotvim/bundle/gundo.vim"]
+	path = dotvim/bundle/gundo.vim
+	url = https://github.com/sjl/gundo.vim.git
+[submodule "dotvim/bundle/nerdcommenter"]
+	path = dotvim/bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "dotvim/bundle/nerdtree"]
+	path = dotvim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "dotvim/bundle/supertab"]
+	path = dotvim/bundle/supertab
+	url = https://github.com/ervandew/supertab.git
+[submodule "dotvim/bundle/syntastic"]
+	path = dotvim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
+[submodule "dotvim/bundle/taglist.vim"]
+	path = dotvim/bundle/taglist.vim
+	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule "dotvim/bundle/vim-airline"]
+	path = dotvim/bundle/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+[submodule "dotvim/bundle/vim-cucumber"]
+	path = dotvim/bundle/vim-cucumber
+	url = https://github.com/tpope/vim-cucumber.git
+[submodule "dotvim/bundle/vim-endwise"]
+	path = dotvim/bundle/vim-endwise
+	url = https://github.com/tpope/vim-endwise.git
+[submodule "dotvim/bundle/vim-fugitive"]
+	path = dotvim/bundle/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "dotvim/bundle/vim-go"]
+	path = dotvim/bundle/vim-go
+	url = https://github.com/fatih/vim-go.git
+[submodule "dotvim/bundle/vim-json"]
+	path = dotvim/bundle/vim-json
+	url = https://github.com/leshill/vim-json.git
+[submodule "dotvim/bundle/vim-markdown"]
+	path = dotvim/bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "dotvim/bundle/vim-repeat"]
+	path = dotvim/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+[submodule "dotvim/bundle/vim-ruby"]
+	path = dotvim/bundle/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby.git
+[submodule "dotvim/bundle/vim-surround"]
+	path = dotvim/bundle/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "dotvim/bundle/vim-userstories"]
+	path = dotvim/bundle/vim-userstories
+	url = https://github.com/pk/vim-userstories.git
+[submodule "dotvim/bundle/vim-yaml"]
+	path = dotvim/bundle/vim-yaml
+	url = https://github.com/stephpy/vim-yaml.git

@@ -1,0 +1,147 @@
+""""""""""""""""""""""""""""""
+" Vim Profile using Pathogen "
+" Author: Chris Tompkinson   "
+""""""""""""""""""""""""""""""
+
+"" Init
+
+" Pathogen
+call pathogen#infect()
+call pathogen#helptags()
+
+" Setup vim basics
+syntax enable
+set nocompatible
+let &t_Co=256
+filetype plugin on
+filetype indent on
+
+" Enable line numbering
+set number
+
+" Disable highlighted search results
+set nohlsearch
+
+" Color scheme
+set background=dark
+colorscheme wombat256
+
+" Useful :list output
+set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+
+" Airline setup
+set laststatus=2
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep= ''
+let g:airline_left_sep = ''
+
+" Set default spaces
+set shiftwidth=4
+set tabstop=4
+
+" Add column to line 100
+set colorcolumn=100
+highlight ColorColumn ctermbg=8
+
+" Splits always occur bottom right
+set splitbelow
+set splitright
+
+"" Bindings
+
+" Enable list mode
+nnoremap <Leader>L :set list!<CR>
+" Run indent on buffer
+nnoremap <Leader>i gg=G''
+" Toggle Gundo
+nnoremap <Leader>u :GundoToggle<CR>
+" Toggle Git Blame
+nnoremap <Leader>b :Gblame<CR>
+" Toggle paste mode
+nnoremap <Leader>p :set paste!<CR>
+" Re-source vim profile
+nnoremap <Leader>r :source ~/.vimrc<CR>
+" Toggle line numbers
+nnoremap <Leader>N :set nu!<CR>
+" Toggle NERDTree file browser
+nnoremap <Leader>nt :NERDTreeToggle<CR>
+" New Tab
+nnoremap <Leader>tn :tabnew<CR>
+" New veritcal split pane with empty buffer
+nnoremap <Leader>v :vnew<CR>
+" New horizontal split pane with empty buffer
+nnoremap <Leader>V :new<CR>
+" Quit
+nnoremap <Leader>q :q<CR>
+" Force quit
+nnoremap <Leader>Q :q!<CR>
+" Write
+nnoremap <Leader>w :w<CR>
+" Force write
+nnoremap <Leader>W :w!<CR>
+" Replace tabs with four spaces
+nnoremap <Leader>ct :%s/	/    /g<CR>
+" Toggle tag list
+nnoremap <Leader>tl :TlistToggle<CR>
+" Run yaml-lint on buffer
+nnoremap <Leader>yl :Shell yaml-lint %<CR>
+" Open file fuzzy matcher
+nnoremap <Leader>f :CtrlP<CR>
+" Start force edit command
+nnoremap <Leader>e :e!
+" Toggle Cursor line
+nnoremap <Leader>ch :set cursorline!<CR>
+" Create commented title
+nnoremap <Leader>tt :set paste<CR>^i# <Esc>O<Esc>79i#<Esc>jo#<Esc>:set paste!<CR>
+" Create bold commented title
+nnoremap <Leader>tb ^i# <Esc>$a #<Esc>yyPpkVr#jjVr#
+" Create underline
+nnoremap <Leader>tu yyPjVr-
+" Insert Snippets
+nnoremap <Leader>ss :r ~/snippets/
+" Open todo file
+nnoremap <Leader>to :e ~/todo.txt<CR>
+" Run shell and output in new pane
+" ! Space at end of line is intentional
+nnoremap <Leader>! :Shell 
+" Toggle Line Wrapping
+nnoremap <Leader>lw :set wrap!<CR>
+
+" Allow easy pane switching with ctrl direction
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Quick pane resizing
+nnoremap <Leader>z :vertical resize -10<CR>
+nnoremap <Leader>x :vertical resize +10<CR>
+nnoremap <Leader>Z :resize -5<CR>
+nnoremap <Leader>X :resize +5<CR>
+
+"" Functions
+
+" Highlight selected line in current pane (Not compatible with ruby)
+"augroup CursorLine
+"  au!
+"  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+"  au WinLeave * setlocal nocursorline
+"augroup END
+
+" Run shell command and output in a new pane
+function! s:ExecuteInShell(command) " {{{
+    let command = join(map(split(a:command), 'expand(v:val)'))
+    let winnr = bufwinnr('^' . command . '$')
+    silent! execute  winnr < 0 ? 'botright new ' . fnameescape(command) : winnr . 'wincmd w'
+    setlocal buftype=nowrite bufhidden=wipe nobuflisted noswapfile nowrap nonumber
+    echo 'Execute ' . command . '...'
+    silent! execute 'silent %!'. command
+    silent! redraw
+    silent! execute 'au BufUnload <buffer> execute bufwinnr(' . bufnr('#') . ') . ''wincmd w'''
+    silent! execute 'nnoremap <silent> <buffer> <LocalLeader>r :call <SID>ExecuteInShell(''' . command . ''')<CR>:AnsiEsc<CR>'
+    silent! execute 'nnoremap <silent> <buffer> q :q<CR>'
+    silent! execute 'AnsiEsc'
+    echo 'Shell command ' . command . ' executed.'
+endfunction " }}}
+command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
