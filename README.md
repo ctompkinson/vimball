@@ -1,5 +1,8 @@
 # Vimball
 Automatic installation of a sane vim setup with various plugins
+## Installation
+1. Run installation script
+	* `./install.sh`
 
 ## Plugins
 * [bufexplorer](https://github.com/jlanzarotta/bufexplorer.git)
@@ -26,6 +29,72 @@ Automatic installation of a sane vim setup with various plugins
 * [Wombat](https://github.com/vim-scripts/Wombat.git)
 	- Uses modified scheme for vimdiff
 
-## Installation
-1. Run installation script
-	* `./install.sh`
+## Bindings
+* Enable list mode
+- <Leader>L
+* Run indent on buffer
+- <Leader>i
+* Toggle Gundo
+- <Leader>u
+* Toggle Git Blame
+- <Leader>b
+* Toggle paste mode
+- <Leader>p
+* Re-source vim profile
+- <Leader>r
+* Toggle line numbers
+- <Leader>N
+* Toggle NERDTree file browser
+- <Leader>nt
+* New Tab
+- <Leader>tn
+* New veritcal split pane with empty buffer
+- <Leader>v
+* New horizontal split pane with empty buffer
+- <Leader>V
+* Quit
+- <Leader>q
+* Force quit
+- <Leader>Q
+* Write
+- <Leader>w
+* Force write
+- <Leader>W
+* Replace tabs with four spaces
+- <Leader>ct
+* Toggle tag list
+- <Leader>tl
+* Run yaml-lint on buffer
+- <Leader>yl
+* Open file fuzzy matcher
+- <Leader>f
+* Start force edit command
+- <Leader>e
+* Toggle Cursor line
+- <Leader>ch
+* Create commented title
+- <Leader>tt
+* Create bold commented title
+- <Leader>tb
+* Create underline
+- <Leader>tu
+* Insert Snippets
+- <Leader>ss
+* Open todo file
+- <Leader>to
+* Run shell and output in new pane
+- <Leader>!
+* Toggle Line Wrapping
+- <Leader>lw
+
+* Allow easy pane switching with ctrl direction
+- <C-h> <C-w>h
+- <C-j> <C-w>j
+- <C-k> <C-w>k
+- <C-l> <C-w>l
+
+* Quick pane resizing
+- <Leader>z
+- <Leader>x
+- <Leader>Z
+- <Leader>X
