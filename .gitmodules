@@ -61,3 +61,15 @@
 [submodule "dotvim/bundle/vim-yaml"]
 	path = dotvim/bundle/vim-yaml
 	url = https://github.com/stephpy/vim-yaml.git
+[submodule "dotvim/bundle/tlib_vim"]
+	path = dotvim/bundle/tlib_vim
+	url = https://github.com/tomtom/tlib_vim.git
+[submodule "dotvim/bundle/vim-addon-mw-utils"]
+	path = dotvim/bundle/vim-addon-mw-utils
+	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule "dotvim/bundle/vim-snipmate"]
+	path = dotvim/bundle/vim-snipmate
+	url = https://github.com/garbas/vim-snipmate.git
+[submodule "dotvim/bundle/vim-snippets"]
+	path = dotvim/bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git

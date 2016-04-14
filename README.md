@@ -25,6 +25,7 @@ Automatic installation of a sane vim setup with various plugins
 - [Markdown](https://github.com/plasticboy/vim-markdown.git)
 - [Repeat](https://github.com/tpope/vim-repeat.git)
 - [Ruby](https://github.com/vim-ruby/vim-ruby.git)
+- [SnipMate](https://github.com/garbas/vim-snipmate)
 - [Surround](https://github.com/tpope/vim-surround.git)
 - [Userstories](https://github.com/pk/vim-userstories.git)
 - [Yaml](https://github.com/stephpy/vim-yaml.git)
