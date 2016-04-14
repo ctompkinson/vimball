@@ -1,7 +1,7 @@
 # Changelog
 
 ## 1.1.0
-- Add SnipMatee
+- Add SnipMate
 - Minor Improvements to install script
 
 ## 1.0.1
