@@ -1,7 +1,7 @@
 ## Vimball Installation Script
 # Author: Chris Tompkinson
 # Email:  ctompkinson@gmail.com
-set -e
+set -eu
 
 # Functions
 function safe_rm() {
@@ -19,9 +19,8 @@ function cwd() {
 }
 
 # Confirm deletion
-echo 'Are you sure you want to destroy your existing .vim and .vimrc? (y/n)'
+echo -n 'Are you sure you want to destroy your existing .vim and .vimrc? (y/n) '
 read confirm
-echo $confirm
 
 if ! [[ "$confirm" =~ (y|Y) ]]; then
   exit 1
