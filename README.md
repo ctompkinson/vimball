@@ -1,7 +1,9 @@
 # Vimball
 Automatic installation of a sane vim setup with various plugins
 ## Installation
-1. Run installation script
+1. Recursively clone this repository (Otherwise git submodule will not be cloned)
+	* `git clone --recursive https://github.com/ctompkinson/vimball.git`
+2. Run installation script
 	* `./install.sh`
 
 ## Plugins
