@@ -92,12 +92,6 @@ nnoremap <Leader>f :CtrlP<CR>
 nnoremap <Leader>e :e!
 " Toggle Cursor line
 nnoremap <Leader>ch :set cursorline!<CR>
-" Create commented title
-nnoremap <Leader>tt :set paste<CR>^i# <Esc>O<Esc>79i#<Esc>jo#<Esc>:set paste!<CR>
-" Create bold commented title
-nnoremap <Leader>tb ^i# <Esc>$a #<Esc>yyPpkVr#jjVr#
-" Create underline
-nnoremap <Leader>tu yyPjVr-
 " Insert Snippets
 nnoremap <Leader>ss :r ~/snippets/
 " Open todo file
@@ -107,6 +101,18 @@ nnoremap <Leader>to :e ~/todo.txt<CR>
 nnoremap <Leader>! :Shell 
 " Toggle Line Wrapping
 nnoremap <Leader>lw :set wrap!<CR>
+
+" Titles
+" Create commented title
+nnoremap <Leader>tt :set paste<CR>^i# <Esc>O<Esc>79i#<Esc>jo#<Esc>:set paste!<CR>
+" Create bold commented title
+nnoremap <Leader>tb ^i# <Esc>$a #<Esc>yyPpkVr#jjVr#
+" Create underline
+nnoremap <Leader>tu yyPjVr-
+" Create Markdown titles
+nnoremap <Leader>t1 ^i# <Esc>$
+nnoremap <Leader>t2 ^i## <Esc>$
+nnoremap <Leader>t3 ^i### <Esc>$
 
 " Allow easy pane switching with ctrl direction
 nnoremap <C-h> <C-w>h
