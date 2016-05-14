@@ -24,21 +24,30 @@ set nohlsearch
 
 " Color scheme
 set background=dark
-colorscheme wombat256
+colorscheme hybrid
 
 " Useful :list output
-set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
+set listchars=eol:⏎,tab:►·,trail:␠,nbsp:⎵
 
 " Airline setup
 set laststatus=2
-let g:airline_right_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_left_alt_sep= ''
-let g:airline_left_sep = ''
+if has("unix")
+  let s:uname = system("uname -s")
+  if s:uname == "Darwin"
+    let g:airline_right_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_left_alt_sep= ''
+    let g:airline_left_sep = ''
+  else
+    let g:airline_powerline_fonts = 1
+  endif
+endif
+
 
 " Set default spaces
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
+set expandtab
 
 " Add column to line 100
 set colorcolumn=100
