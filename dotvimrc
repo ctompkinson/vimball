@@ -16,15 +16,40 @@ let &t_Co=256
 filetype plugin on
 filetype indent on
 
+" Ignore case
+set ic
+
 " Enable line numbering
 set number
+
+" Setup relative line numbers
+set relativenumber
+nnoremap <Leader>rn :set relativenumber!<CR>
+
+nnoremap <Leader>r :source ~/.config/nvim/init.vim<CR>
 
 " Disable highlighted search results
 set nohlsearch
 
+" Ignore case
+set ic
+
 " Color scheme
 set background=dark
 colorscheme hybrid
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey
 
 " Useful :list output
 set listchars=eol:⏎,tab:►·,trail:␠,nbsp:⎵
@@ -57,6 +82,8 @@ highlight ColorColumn ctermbg=8
 set splitbelow
 set splitright
 
+com! FormatJSON %!python -m json.tool
+
 "" Bindings
 
 " Enable list mode
@@ -75,6 +102,8 @@ nnoremap <Leader>r :source ~/.vimrc<CR>
 nnoremap <Leader>N :set nu!<CR>
 " Toggle NERDTree file browser
 nnoremap <Leader>nt :NERDTreeToggle<CR>
+" Toggle NERDTree file browser 2
+nnoremap <Leader>] :NERDTreeToggle<CR>
 " New Tab
 nnoremap <Leader>tn :tabnew<CR>
 " New veritcal split pane with empty buffer
@@ -98,11 +127,9 @@ nnoremap <Leader>yl :Shell yaml-lint %<CR>
 " Open file fuzzy matcher
 nnoremap <Leader>f :CtrlP<CR>
 " Start force edit command
-nnoremap <Leader>e :e!
+nnoremap <Leader>e :SyntasticCheck<CR>:Errors<CR>
 " Toggle Cursor line
 nnoremap <Leader>ch :set cursorline!<CR>
-" Insert Snippets
-nnoremap <Leader>ss :r ~/snippets/
 " Open todo file
 nnoremap <Leader>to :e ~/todo.txt<CR>
 " Run shell and output in new pane
@@ -110,6 +137,12 @@ nnoremap <Leader>to :e ~/todo.txt<CR>
 nnoremap <Leader>! :Shell 
 " Toggle Line Wrapping
 nnoremap <Leader>lw :set wrap!<CR>
+"Terminal
+nnoremap <Leader>T :terminal<CR>
+
+" Sessions
+nnoremap <Leader>ss :mksession ~/.default_session.vim<CR>
+nnoremap <Leader>ls :source ~/.default_session.vim<CR>
 
 " Titles
 " Create commented title
@@ -118,8 +151,7 @@ nnoremap <Leader>tt :set paste<CR>^i# <Esc>O<Esc>79i#<Esc>jo#<Esc>:set paste!<CR
 nnoremap <Leader>tb ^i# <Esc>$a #<Esc>yyPpkVr#jjVr#
 " Create underline
 nnoremap <Leader>tu yyPjVr-
-" Create Markdown titles
-nnoremap <Leader>t1 ^i# <Esc>$
+" Create Markdown titles nnoremap <Leader>t1 ^i# <Esc>$
 nnoremap <Leader>t2 ^i## <Esc>$
 nnoremap <Leader>t3 ^i### <Esc>$
 
@@ -129,11 +161,28 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 
+" Terminal binds
+tnoremap <Esc> <C-\><C-n>
+tnoremap <C-h> <C-\><C-n><C-w>h
+tnoremap <C-j> <C-\><C-n><C-w>j
+tnoremap <C-k> <C-\><C-n><C-w>k
+tnoremap <C-l> <C-\><C-n><C-w>l
+
 " Quick pane resizing
 nnoremap <Leader>z :vertical resize -10<CR>
 nnoremap <Leader>x :vertical resize +10<CR>
 nnoremap <Leader>Z :resize -5<CR>
 nnoremap <Leader>X :resize +5<CR>
+
+" Open a term
+nnoremap <Leader>T :terminal<CR>
+
+" Open quick file view
+nnoremap <Leader>F :Ntree<CR>
+
+" CTags
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 "" Functions
 
