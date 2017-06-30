@@ -26,8 +26,6 @@ set number
 set relativenumber
 nnoremap <Leader>rn :set relativenumber!<CR>
 
-nnoremap <Leader>r :source ~/.config/nvim/init.vim<CR>
-
 " Disable highlighted search results
 set nohlsearch
 
@@ -56,18 +54,49 @@ set listchars=eol:⏎,tab:►·,trail:␠,nbsp:⎵
 
 " Airline setup
 set laststatus=2
-if has("unix")
-  let s:uname = system("uname -s")
-  if s:uname == "Darwin"
-    let g:airline_right_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_left_alt_sep= ''
-    let g:airline_left_sep = ''
-  else
-    let g:airline_powerline_fonts = 1
-  endif
+let g:airline_right_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_left_alt_sep= ''
+let g:airline_left_sep = ''
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1
+set statusline+=%#warningmsg#
+set statusline+=%{ALEGetStatusLine()}
+set statusline+=%*
+let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
+
+" Setup linters
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_ruby_checkers = ['rubocop', 'mri']
+let g:vim_json_syntax_conceal = 0
+
+" Enable omni completion.
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+autocmd FileType ruby let &l:tags = pathogen#legacyjoin(pathogen#uniq(
+      \ pathogen#split(&tags) +
+      \ map(split($GEM_PATH,':'),'v:val."/gems/*/tags"')))
+
+let g:deoplete#enable_at_startup = 1
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
 endif
 
+
+" Setup a cursorline
+set cursorline
+
+" Markdown hider
+set conceallevel=2
 
 " Set default spaces
 set shiftwidth=2
@@ -84,6 +113,17 @@ set splitright
 
 com! FormatJSON %!python -m json.tool
 
+
+" Close when finished
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+" Easy Tags
+set tags=./tags;
+let g:easytags_dynamic_files = 1
+
 "" Bindings
 
 " Enable list mode
@@ -91,13 +131,11 @@ nnoremap <Leader>L :set list!<CR>
 " Run indent on buffer
 nnoremap <Leader>i gg=G''
 " Toggle Gundo
-nnoremap <Leader>u :GundoToggle<CR>
-" Toggle Git Blame
-nnoremap <Leader>b :Gblame<CR>
+nnoremap <Leader>u :MundoToggle<CR>
 " Toggle paste mode
 nnoremap <Leader>p :set paste!<CR>
 " Re-source vim profile
-nnoremap <Leader>r :source ~/.vimrc<CR>
+nnoremap <Leader>r :source ~/.config/nvim/init.vim<CR>
 " Toggle line numbers
 nnoremap <Leader>N :set nu!<CR>
 " Toggle NERDTree file browser
@@ -121,20 +159,20 @@ nnoremap <Leader>W :w!<CR>
 " Replace tabs with four spaces
 nnoremap <Leader>ct :%s/	/    /g<CR>
 " Toggle tag list
-nnoremap <Leader>tl :TlistToggle<CR>
+nnoremap <Leader>lt :TlistToggle<CR>
 " Run yaml-lint on buffer
 nnoremap <Leader>yl :Shell yaml-lint %<CR>
 " Open file fuzzy matcher
 nnoremap <Leader>f :CtrlP<CR>
+" Open buffer matcher
+nnoremap <Leader>b :CtrlPBuffer<CR>
 " Start force edit command
 nnoremap <Leader>e :SyntasticCheck<CR>:Errors<CR>
 " Toggle Cursor line
 nnoremap <Leader>ch :set cursorline!<CR>
-" Open todo file
-nnoremap <Leader>to :e ~/todo.txt<CR>
 " Run shell and output in new pane
 " ! Space at end of line is intentional
-nnoremap <Leader>! :Shell 
+nnoremap <Leader>! :Shell
 " Toggle Line Wrapping
 nnoremap <Leader>lw :set wrap!<CR>
 "Terminal
@@ -151,7 +189,8 @@ nnoremap <Leader>tt :set paste<CR>^i# <Esc>O<Esc>79i#<Esc>jo#<Esc>:set paste!<CR
 nnoremap <Leader>tb ^i# <Esc>$a #<Esc>yyPpkVr#jjVr#
 " Create underline
 nnoremap <Leader>tu yyPjVr-
-" Create Markdown titles nnoremap <Leader>t1 ^i# <Esc>$
+" Create Markdown titles
+nnoremap <Leader>t1 ^i# <Esc>$
 nnoremap <Leader>t2 ^i## <Esc>$
 nnoremap <Leader>t3 ^i### <Esc>$
 
@@ -167,6 +206,9 @@ tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-l> <C-\><C-n><C-w>l
+
+" Hack to allow Ctrl movement on OS X
+nmap <BS> <C-W>h
 
 " Quick pane resizing
 nnoremap <Leader>z :vertical resize -10<CR>
@@ -184,14 +226,20 @@ nnoremap <Leader>F :Ntree<CR>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-"" Functions
+" ROT13
+map <Leader>R ggg?G``
 
-" Highlight selected line in current pane (Not compatible with ruby)
-"augroup CursorLine
-"  au!
-"  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-"  au WinLeave * setlocal nocursorline
-"augroup END
+" Get paste
+nnoremap <Leader>' "+
+
+" Vim Fugitive
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gpu :Gpush<CR>
+nnoremap <Leader>gpl :Gpull<CR>
+nnoremap <Leader>gb :Gblame<CR>
+
+"" Functions
 
 " Run shell command and output in a new pane
 function! s:ExecuteInShell(command) " {{{

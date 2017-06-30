@@ -16,12 +16,6 @@
 [submodule "dotvim/bundle/nerdtree"]
 	path = dotvim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "dotvim/bundle/supertab"]
-	path = dotvim/bundle/supertab
-	url = https://github.com/ervandew/supertab.git
-[submodule "dotvim/bundle/syntastic"]
-	path = dotvim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule "dotvim/bundle/taglist.vim"]
 	path = dotvim/bundle/taglist.vim
 	url = https://github.com/vim-scripts/taglist.vim.git
@@ -67,12 +61,63 @@
 [submodule "dotvim/bundle/vim-addon-mw-utils"]
 	path = dotvim/bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
-[submodule "dotvim/bundle/vim-snipmate"]
-	path = dotvim/bundle/vim-snipmate
-	url = https://github.com/garbas/vim-snipmate.git
-[submodule "dotvim/bundle/vim-snippets"]
-	path = dotvim/bundle/vim-snippets
-	url = https://github.com/honza/vim-snippets.git
 [submodule "dotvim/bundle/vim-multiple-cursors"]
 	path = dotvim/bundle/vim-multiple-cursors
 	url = https://github.com/terryma/vim-multiple-cursors.git
+[submodule "dotvim/bundle/SyntaxRange"]
+	path = dotvim/bundle/SyntaxRange
+	url = https://github.com/vim-scripts/SyntaxRange.git
+[submodule "dotvim/bundle/ale"]
+	path = dotvim/bundle/ale
+	url = https://github.com/w0rp/ale.git
+[submodule "dotvim/bundle/denite.nvim"]
+	path = dotvim/bundle/denite.nvim
+	url = https://github.com/Shougo/denite.nvim.git
+[submodule "dotvim/bundle/deoplete-ruby"]
+	path = dotvim/bundle/deoplete-ruby
+	url = https://github.com/fishbullet/deoplete-ruby.git
+[submodule "dotvim/bundle/utl.vim"]
+	path = dotvim/bundle/utl.vim
+	url = https://github.com/vim-scripts/utl.vim.git
+[submodule "dotvim/bundle/vim-rspec"]
+	path = dotvim/bundle/vim-rspec
+	url = https://github.com/thoughtbot/vim-rspec.git
+[submodule "dotvim/bundle/vim-airline-themes"]
+	path = dotvim/bundle/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
+[submodule "dotvim/bundle/vim-devicons"]
+	path = dotvim/bundle/vim-devicons
+	url = https://github.com/ryanoasis/vim-devicons.git
+[submodule "dotvim/bundle/vim-easytags"]
+	path = dotvim/bundle/vim-easytags
+	url = https://github.com/xolox/vim-easytags.git
+[submodule "dotvim/bundle/vim-speeddating"]
+	path = dotvim/bundle/vim-speeddating
+	url = https://github.com/tpope/vim-speeddating.git
+[submodule "dotvim/bundle/vim-searchindex"]
+	path = dotvim/bundle/vim-searchindex
+	url = https://github.com/google/vim-searchindex.git
+[submodule "dotvim/bundle/vim-terraform"]
+	path = dotvim/bundle/vim-terraform
+	url = https://github.com/hashivim/vim-terraform.git
+[submodule "dotvim/bundle/vim-mundo"]
+	path = dotvim/bundle/vim-mundo
+	url = https://github.com/simnalamburt/vim-mundo.git
+[submodule "dotvim/bundle/vim-nerdtree-syntax-highlight"]
+	path = dotvim/bundle/vim-nerdtree-syntax-highlight
+	url = https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git
+[submodule "dotvim/bundle/vim-misc"]
+	path = dotvim/bundle/vim-misc
+	url = https://github.com/xolox/vim-misc.git
+[submodule "dotvim/bundle/vim-textobj-rubyblock"]
+	path = dotvim/bundle/vim-textobj-rubyblock
+	url = https://github.com/nelstrom/vim-textobj-rubyblock.git
+[submodule "dotvim/bundle/vim-textobj-user"]
+	path = dotvim/bundle/vim-textobj-user
+	url = https://github.com/kana/vim-textobj-user.git
+[submodule "dotvim/bundle/vim-gitgutter"]
+	path = dotvim/bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+[submodule "dotvim/bundle/vim-indent-object"]
+	path = dotvim/bundle/vim-indent-object
+	url = https://github.com/michaeljsmith/vim-indent-object.git

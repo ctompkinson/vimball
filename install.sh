@@ -32,7 +32,8 @@ safe_rm "$HOME/.vimrc"
 
 # Copy new files
 echo "Copying vim files..."
-cp -r "`cwd`/dotvim" "$HOME/.vim"
-cp    "`cwd`/dotvimrc" "$HOME/.vimrc"
+mkdir -p "$HOME/.config/nvim"
+cp -r "`cwd`/dotvim" "$HOME/.config/nvim/init.vim"
+cp    "`cwd`/dotvimrc" "$HOME/.config/nvim"
 
 echo "Installation successful!"
