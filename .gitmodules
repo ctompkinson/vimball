@@ -112,9 +112,6 @@
 [submodule "dotvim/bundle/vim-gitgutter"]
 	path = dotvim/bundle/vim-gitgutter
 	url = https://github.com/airblade/vim-gitgutter.git
-[submodule "dotvim/bundle/vim-indent-object"]
-	path = dotvim/bundle/vim-indent-object
-	url = https://github.com/michaeljsmith/vim-indent-object.git
 [submodule "dotvim/bundle/vim-puppet"]
 	path = dotvim/bundle/vim-puppet
 	url = https://github.com/rodjek/vim-puppet.git
