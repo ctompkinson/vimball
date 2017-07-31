@@ -36,18 +36,13 @@ set ic
 set background=dark
 colorscheme hybrid
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-
-let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 
 hi IndentGuidesOdd  ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
+
+let g:UltiSnipsExpandTrigger= "<c-f>"
+let g:UltiSnipsJumpForwardTrigger = "<c-f>"
 
 " Useful :list output
 set listchars=eol:⏎,tab:►·,trail:␠,nbsp:⎵
@@ -66,12 +61,6 @@ set statusline+=%{ALEGetStatusLine()}
 set statusline+=%*
 let g:ale_statusline_format = ['⨉ %d', '⚠ %d', '⬥ ok']
 
-" Setup linters
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 0
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_ruby_checkers = ['rubocop', 'mri']
 let g:vim_json_syntax_conceal = 0
 
 " Enable omni completion.
@@ -90,6 +79,9 @@ let g:deoplete#enable_at_startup = 1
 if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
+
+" deoplete tab-complete
+inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 
 " Setup a cursorline
@@ -135,7 +127,7 @@ nnoremap <Leader>u :MundoToggle<CR>
 " Toggle paste mode
 nnoremap <Leader>p :set paste!<CR>
 " Re-source vim profile
-nnoremap <Leader>r :source ~/.config/nvim/init.vim<CR>
+nnoremap <Leader>R :source ~/.config/nvim/init.vim<CR>
 " Toggle line numbers
 nnoremap <Leader>N :set nu!<CR>
 " Toggle NERDTree file browser
@@ -166,8 +158,6 @@ nnoremap <Leader>yl :Shell yaml-lint %<CR>
 nnoremap <Leader>f :CtrlP<CR>
 " Open buffer matcher
 nnoremap <Leader>b :CtrlPBuffer<CR>
-" Start force edit command
-nnoremap <Leader>e :SyntasticCheck<CR>:Errors<CR>
 " Toggle Cursor line
 nnoremap <Leader>ch :set cursorline!<CR>
 " Run shell and output in new pane
@@ -226,9 +216,6 @@ nnoremap <Leader>F :Ntree<CR>
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-" ROT13
-map <Leader>R ggg?G``
-
 " Get paste
 nnoremap <Leader>' "+
 
@@ -238,6 +225,8 @@ nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gpu :Gpush<CR>
 nnoremap <Leader>gpl :Gpull<CR>
 nnoremap <Leader>gb :Gblame<CR>
+
+autocmd FileType go nnoremap <Leader>r :GoRun<CR>
 
 "" Functions
 

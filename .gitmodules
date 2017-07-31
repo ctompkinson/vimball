@@ -70,15 +70,9 @@
 [submodule "dotvim/bundle/ale"]
 	path = dotvim/bundle/ale
 	url = https://github.com/w0rp/ale.git
-[submodule "dotvim/bundle/denite.nvim"]
-	path = dotvim/bundle/denite.nvim
-	url = https://github.com/Shougo/denite.nvim.git
 [submodule "dotvim/bundle/deoplete-ruby"]
 	path = dotvim/bundle/deoplete-ruby
 	url = https://github.com/fishbullet/deoplete-ruby.git
-[submodule "dotvim/bundle/utl.vim"]
-	path = dotvim/bundle/utl.vim
-	url = https://github.com/vim-scripts/utl.vim.git
 [submodule "dotvim/bundle/vim-rspec"]
 	path = dotvim/bundle/vim-rspec
 	url = https://github.com/thoughtbot/vim-rspec.git
@@ -121,3 +115,39 @@
 [submodule "dotvim/bundle/vim-indent-object"]
 	path = dotvim/bundle/vim-indent-object
 	url = https://github.com/michaeljsmith/vim-indent-object.git
+[submodule "dotvim/bundle/vim-puppet"]
+	path = dotvim/bundle/vim-puppet
+	url = https://github.com/rodjek/vim-puppet.git
+[submodule "dotvim/bundle/ultisnips"]
+	path = dotvim/bundle/ultisnips
+	url = https://github.com/SirVer/ultisnips.git
+[submodule "dotvim/bundle/vim-snippets"]
+	path = dotvim/bundle/vim-snippets
+	url = https://github.com/honza/vim-snippets.git
+[submodule "dotvim/bundle/denite.nvim"]
+	path = dotvim/bundle/denite.nvim
+	url = https://github.com/Shougo/denite.nvim.git
+[submodule "dotvim/bundle/deoplete-docker"]
+	path = dotvim/bundle/deoplete-docker
+	url = https://github.com/zchee/deoplete-docker.git
+[submodule "dotvim/bundle/vim-rhubarb"]
+	path = dotvim/bundle/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb.git
+[submodule "dotvim/bundle/deoplete-github"]
+	path = dotvim/bundle/deoplete-github
+	url = https://github.com/SevereOverfl0w/deoplete-github.git
+[submodule "dotvim/bundle/deoplete-ternjs"]
+	path = dotvim/bundle/deoplete-ternjs
+	url = https://github.com/carlitux/deoplete-ternjs.git
+[submodule "dotvim/bundle/deoplete-jedi"]
+	path = dotvim/bundle/deoplete-jedi
+	url = https://github.com/zchee/deoplete-jedi.git
+[submodule "dotvim/bundle/deoplete-go"]
+	path = dotvim/bundle/deoplete-go
+	url = https://github.com/zchee/deoplete-go.git
+[submodule "dotvim/bundle/deoplete.nvim"]
+	path = dotvim/bundle/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim.git
+[submodule "dotvim/bundle/utl.vim"]
+	path = dotvim/bundle/utl.vim
+	url = https://github.com/vim-scripts/utl.vim.git

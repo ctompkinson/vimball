@@ -1,7 +1,26 @@
 ## Vimball Installation Script
 # Author: Chris Tompkinson
 # Email:  ctompkinson@gmail.com
-set -eu
+
+set -e
+
+# Handle params
+install_type="$1"
+if ! [[ "$install_type" =~ (vim|nvim) ]]; then
+  echo "Select vim or nvim"
+  exit 1
+fi
+
+case $install_type in
+  vim)
+    init_file="$HOME/.vimrc"
+    config_dir="$HOME/.vim"
+    ;;
+  nvim)
+    init_file="$HOME/.config/nvim/init.vim"
+    config_dir="$HOME/.config/nvim"
+    ;;
+esac
 
 # Functions
 function safe_rm() {
@@ -19,7 +38,7 @@ function cwd() {
 }
 
 # Confirm deletion
-echo -n 'Are you sure you want to destroy your existing .vim and .vimrc? (y/n) '
+echo "Are you sure you want to destroy your existing $config_dir and $init_file? (y/n)"
 read confirm
 
 if ! [[ "$confirm" =~ (y|Y) ]]; then
@@ -27,13 +46,13 @@ if ! [[ "$confirm" =~ (y|Y) ]]; then
 fi
 
 # Clean existing repos
-safe_rm "$HOME/.vim"
-safe_rm "$HOME/.vimrc"
+safe_rm "$init_file"
+safe_rm "$config_dir"
 
 # Copy new files
-echo "Copying vim files..."
-mkdir -p "$HOME/.config/nvim"
-cp -r "`cwd`/dotvim" "$HOME/.config/nvim/init.vim"
-cp    "`cwd`/dotvimrc" "$HOME/.config/nvim"
+echo "Copying files..."
+mkdir -p "$config_dir"
+cp -r ./dotvim/* "$config_dir"
+cp    ./dotvimrc "$init_file"
 
 echo "Installation successful!"
